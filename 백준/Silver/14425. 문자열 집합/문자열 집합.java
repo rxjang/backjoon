@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -11,21 +13,14 @@ public class Main {
         int num = Integer.parseInt(st.nextToken());
         int total = Integer.parseInt(st.nextToken());
         
-        String[] s = new String[num];
+        Map<String, Integer> map = new HashMap<>();
         for (int i = 0; i < num; i++) {
-            s[i] = br.readLine();
+            map.put(br.readLine(), 0);
         }
         
         int answer = 0;
-        
         for (int i = 0; i < total; i++) {
-            String word = br.readLine();
-            for (int j = 0; j < num; j++) {
-                if (s[j].equals(word)) {
-                    answer++;
-                    continue;
-                }
-            }
+            if(map.containsKey(br.readLine())) answer++;
         }
         
         System.out.println(answer);
